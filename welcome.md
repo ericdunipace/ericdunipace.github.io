@@ -3,7 +3,7 @@ layout: about
 cover: true
 image: 
 description: >
-  About me.
+  The personal website of Eric A. Dunipace.
 hide_description: true
 permalink: /
 redirect_from:
