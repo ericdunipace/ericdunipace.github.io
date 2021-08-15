@@ -16,7 +16,7 @@ I currently do most of my coding in R with some C++ sprinkled in thanks to [Rcpp
 
 And packages under development include
 * **causalOT:** using Optimal Transport methods to perform weighting for causal inference
-* **multiSampleTesting:** Using nearest neighbor graphs and Hamiltonian paths to do multisample testing
+* **multivariateTesting:** Using nearest neighbor graphs and Hamiltonian paths to do multisample testing with multivariate data
 
 ## Other Code
 Additionally, code to reproduce the results in the paper [*Interpretable Model Summaries Using the Wasserstein Distance*](https://arxiv.org/abs/2012.09999) can be found at [[https://github.com/ericdunipace/SLIMpaper]](https://github.com/ericdunipace/SLIMpaper)
