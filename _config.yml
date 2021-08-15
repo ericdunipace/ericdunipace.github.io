@@ -40,6 +40,9 @@ keywords:              [Dunipace, Eric, optimal, transport, Harvard, UCLA, DGSOM
 logo:                  /assets/img/eric_small.jpeg
 #logo:                  /assets/img/eric_full.JPG
 
+favicon: /favicon.ico
+apple_touch_icon: /assets/img/apple-touch-icon.png
+
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
