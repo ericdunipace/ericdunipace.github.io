@@ -4,7 +4,6 @@ image:
 description: >
   Research interests.
 hide_description: true
-permalink: /research
 ---
 
 # Research
