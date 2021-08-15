@@ -4,7 +4,6 @@ image:
 description: >
   Software packages
 hide_description: true
-permalink: /software
 ---
 
 # Software

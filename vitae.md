@@ -3,8 +3,6 @@ layout: page
 description: >
   CV and useful links
 hide_description: true
-permalink: /vitae/
-
 ---
 
 
