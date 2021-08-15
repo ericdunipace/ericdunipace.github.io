@@ -4,6 +4,7 @@ image: none
 description: >
   CV and useful links
 hide_description: true
+permalink: /vitae/
 ---
 
 
