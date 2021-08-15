@@ -13,6 +13,7 @@ I currently do most of my coding in R with C++ when necessary using [Rcpp](https
 * [**RcppCGAL:**](https://github.com/ericdunipace/RcppCGAL) header files for the CGAL library for use in R
 * [**WpProj:**](https://github.com/ericdunipace/WpProj) Wasserstein projections for linear models 
 
+
 And packages under development include
 * **causalOT:** using Optimal Transport methods to perform weighting for causal inference
 * **multiSampleTesting:** Using nearest neighbor graphs and Hamiltonian paths to do multisample testing
