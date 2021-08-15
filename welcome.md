@@ -1,5 +1,6 @@
 ---
-layout: about
+layout: welcome
+cover: true
 image: 
 description: >
   About me.
