@@ -1,6 +1,5 @@
 ---
 layout: page
-image: 
 description: >
   Software packages
 hide_description: true

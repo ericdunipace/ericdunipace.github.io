@@ -1,6 +1,5 @@
 ---
 layout: page
-image: 
 description: >
   Research interests.
 hide_description: true
