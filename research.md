@@ -20,8 +20,7 @@ Among my research interests are
     
 Current collaborators include
 * [José Zubizarreta](http://jrzubizarreta.com):     Associate Professor, Department of Health Care Policy, Harvard Medical School and Associate Professor, Department of Biostatistics, Harvard School of Public Health
-* [Lorenzo Trippa](https://bcb.dfci.harvard.edu/~ltrippa/): Associate Professor 
-Department of Biostatistics and Computational Biology and Associate Professor, Department of Biostatistics, Harvard School of Public Health
+* [Lorenzo Trippa](https://bcb.dfci.harvard.edu/~ltrippa/): Associate Professor, Department of Biostatistics and Computational Biology and Associate Professor, Department of Biostatistics, Harvard School of Public Health
 
 
 
