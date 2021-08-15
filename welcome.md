@@ -1,5 +1,5 @@
 ---
-layout: welcome
+layout: about
 cover: true
 image: 
 description: >
@@ -7,7 +7,7 @@ description: >
 hide_description: true
 permalink: /
 redirect_from:
-  - /welcome
+  - /welcome/
 ---
 
 # Welcome
