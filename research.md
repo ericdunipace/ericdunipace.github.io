@@ -1,9 +1,10 @@
 ---
 layout: page
 description: >
-  Research interests.
+  Research interests
 hide_description: true
 ---
+
 
 # Research
 
