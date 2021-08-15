@@ -40,8 +40,8 @@ keywords:              [Dunipace, Eric, optimal, transport, Harvard, UCLA, DGSOM
 logo:                  /assets/img/eric_small.jpeg
 #logo:                  /assets/img/eric_full.JPG
 
-favicon: /assets/icons/favicon.ico
-apple_touch_icon: /assets/icons/apple-touch-icon.png
+favicon: favicon.ico
+apple_touch_icon: /assets/img/logo.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
