@@ -11,8 +11,8 @@ hide_description: true
 Among my research interests are
 
 * Causal Inference
-    * Using recent advancements in Optimal Transport, I'm interested in exploring the connections between importance sampling and weighting methods used for causal inference.
-    * I am also interested in using Bayesian methodology to perform model selection with more recent weighting methods such as Stable Balancing Weights.    
+    * Using recent advancements in Optimal Transport, I'm interested in exploring the connections between importance sampling and weighting methods used for causal inference
+    * I am also interested in using Bayesian methodology to perform model selection with more recent weighting methods such as Stable Balancing Weights
 * Model interpretation
     * *Interpretable Model Summaries Using the Wasserstein Distance* with Lorenzo Trippa, [https://arxiv.org/abs/2012.09999]([https://arxiv.org/abs/2012.09999])
 * Multisample Testing
