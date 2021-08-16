@@ -14,7 +14,7 @@ author1:
      My research explores the ways Optimal Transport methodology can be applied to different statistical inference problems in fields like causal inference and model interpretation. I am also interested in using tools from Bayesian Inference to perform model selection with some of the newly developed models in causal inference.
      
      
-     **Email:** edunipace [at] mail.harvard.edu
+     **Email:** edunipace [at] mail [dot] harvard [dot] edu
 
   # This photo will be used in the about section
 #  picture:
@@ -28,8 +28,9 @@ author1:
   # Comment/uncommet to show/hide
   # Rearrange to change the order in which they appear
   social:
-    twitter:         <eifer>
     github:          <ericdunipace>
+    linkedin:        <eric_dunipace_ericdunipace>
+#    twitter:         <eifer>
 #    email:           <edunipace@mail.harvard.edu>
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
@@ -59,7 +60,6 @@ author1:
     # npm:             <username>
     # hackernews:      <username>
     # trello:          <firstnamelastname>
-     linkedin:        <eric_dunipace_ericdunipace>
     # xing:            <firstname_lastname_counter>
     # blogger:         <number>
     # delicious:       <username>
