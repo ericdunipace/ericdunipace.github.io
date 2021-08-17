@@ -32,12 +32,13 @@ description:           >
 tagline:               PhD in Biostatistics. Medicine at UCLA.
 
 # A list of keywords for your blog
-keywords:              [Dunipace, Eric, optimal, transport, Harvard, UCLA, DGSOM, Berkeley]
+keywords:              [Dunipace, Eric, optimal, transport, optimal transport, Harvard, UCLA, DGSOM, Berkeley]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
 logo:                  /assets/img/eric_small.jpeg
+#logo:                  /assets/img/eric_large.jpg
 #logo:                  /assets/img/eric_full.JPG
 
 favicon: /assets/img/favicon.ico
@@ -212,7 +213,7 @@ hydejack:
   project_addons:      [about, newsletter, other, comments]
 
   # Set to `true` if you don't want to show an icon indicating external links
-  no_mark_external:    false
+  no_mark_external:    true
 
   # Set to `true` if third party plugins fail to work with dynamically loaded pages
   no_push_state:       false
