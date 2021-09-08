@@ -9,7 +9,7 @@ permalink: /vitae/
 
 # Vitae
 
-A brief CV is listed below. A longer one is [here](assets/Eric_Dunipace_CV_2021_09_06.pdf).
+A brief CV is listed below. A longer one is [here](assets/Eric_Dunipace_CV.pdf).
 
 ### Education
 
