@@ -19,6 +19,6 @@ A brief CV is listed below. A longer one is [here](assets/Eric_Dunipace_CV.pdf).
 * 2003--2008: BA with honors, Molecular and Cell Biology, University of California, Berkeley
 
 ### Other positions
-* 2013--Present: VP of Impact Evaluation, TraumaLink, Bangladesh
+* 2013--Present: VP of Impact Evaluation, [TraumaLink, Bangladesh](http://www.traumalink.net)
 * 2015--2016: Co-President, Connecting Californians to Care, UCLA
 * 2006--2008: Bear Student Athlete Advisory Committee, The University of California
