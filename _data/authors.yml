@@ -8,7 +8,7 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    I recently received my PhD in Biostatistics under the joint supervision of José R. Zubizarreta and Lorenzo Trippa. Currrently, I am in the midst of my clinical rotations at the David Geffen School of Medicine at UCLA.
+    I received my PhD in Biostatistics under the joint supervision of José R. Zubizarreta and Lorenzo Trippa. Currrently, I am in the midst of my clinical rotations at the David Geffen School of Medicine at UCLA.
     
     
      My research explores the ways Optimal Transport methodology can be applied to different statistical inference problems in fields like causal inference and model interpretation. I am also interested in using tools from Bayesian Inference to perform model selection with some of the newly developed models in causal inference.
