@@ -1,7 +1,7 @@
 ---
-  root_font_size: 11 #px default 15,16,17
-  root_font_size_medium: 12 #px
-  root_font_size_large: 13 #px
+  root_font_size: 14 #px default 15,16,17
+  root_font_size_medium: 15 #px
+  root_font_size_large: 16 #px
 
   root_font_size_print: 8 #pt
 
@@ -16,7 +16,7 @@
   content_width_5: 54 #rem
 
   sidebar_width: 21 #rem
-  border_radius: 0.5 #rem
+  border_radius: 0.0 #rem 0.5 default
 
   break_point_1: 42 #em
   break_point_2: 54 #em
