@@ -16,7 +16,7 @@ A full list of my publications is available on my [Google Scholar profile.](http
 * Model interpretation
     * *Interpretable Model Summaries Using the Wasserstein Distance* with Lorenzo Trippa, [[https://arxiv.org/abs/2012.09999]](https://arxiv.org/abs/2012.09999)
 * Multisample Testing
-    * Using graphical methods to tell if distributions are balanced in a randomized control trial with a multivalued treatment
+    * Using graphical methods to tell if distributions are balanced in a randomized control trial with a multivalued treatment [[https://arxiv.org/abs/2207.10855]](https://arxiv.org/abs/2207.10855)
     
 Current collaborators include
 * [José Zubizarreta:](http://jrzubizarreta.com) Associate Professor, Department of Health Care Policy, Harvard Medical School and Associate Professor, Department of Biostatistics, Harvard T.H. Chan School of Public Health
