@@ -4,6 +4,6 @@ title: Blog
 description: >
   Eric Dunipace's blog
 hide_description: true
-permalink: /blog
+permalink: /blog/
 group: true
 ---
