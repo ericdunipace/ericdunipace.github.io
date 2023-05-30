@@ -14,7 +14,7 @@ The reason is that if we divide by $latex n$ to calculate the variance, our esti
 
 If we repeatedly draw datasets of size 1000 from a Normal(0,1) distribution and calculate the variance for each dataset with both methods, we'll get a distribution of estimates. With this distribution we'll get a sense of how much each estimator is biased but also the variance of the estimator. This is what is displayed in figure 1 below. You can see the sampling distribution for both methods with the variance of our estimates given on the figure.
 
-![Full-width image](/assets/img/blog/bias_var_1.png){:.lead data-width="800" data-height="100"}
+![Full-width image](/assets/img/blog/26-fat-rat-sewer.w700.h467.2x.jpg){:.lead data-width="800" data-height="100"}
 Figure 1: Distribution of the estimates for the variance of 1000 data points drawn from a Normal(0,1) model.
 {:.figure}
 

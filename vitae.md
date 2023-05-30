@@ -13,7 +13,7 @@ A brief CV is listed below. A longer one is [here](assets/Eric_Dunipace_CV.pdf).
 
 ### Education
 
-* 2014--2023 Expected: MD, David Geffen School of Medicine at UCLA
+* 2014--2023: MD, David Geffen School of Medicine at UCLA
 * 2016--2021: PhD and MA, Biostatistics, Harvard University
 * 2012--2014: MSc, Global Health and Population, Harvard University
 * 2003--2008: BA with honors, Molecular and Cell Biology, University of California, Berkeley
