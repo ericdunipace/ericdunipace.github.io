@@ -26,13 +26,13 @@ title:                 Eric A. Dunipace
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Personal website of Eric A. Dunipace — PhD and MS3
+  Personal website of Eric A. Dunipace — MD/PhD
 
 # A shorter description for the sidebar.
-tagline:               PhD in Biostatistics. Medicine at UCLA.
+tagline:               Biostatistics. Medicine.
 
 # A list of keywords for your blog
-keywords:              [Dunipace, Eric, optimal, transport, optimal transport, Harvard, UCLA, DGSOM, Berkeley]
+keywords:              [Dunipace, Eric, optimal, transport, optimal transport, Harvard, UCLA, DGSOM, Berkeley, Stanford, psychiatry]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -60,8 +60,8 @@ menu:
     url:               /research/
   - title:             Software
     url:               /software/
-#  - title:             Blog
-#    url:               /blog/
+  - title:             Blog
+    url:               /blog/
   - title:             Vitae and links
     url:               /vitae/
 
@@ -76,7 +76,7 @@ menu:
 #    url:               /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             Eric A. Dunipace © 2022. All rights reserved.
+copyright:             Eric A. Dunipace © 2023. All rights reserved.
 
 # Format of the permalinks
 permalink:             /:categories/:year-:month-:day-:title/
