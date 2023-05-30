@@ -2,7 +2,7 @@
 layout: post
 title: RcppCGAL updated
 description: >
-	RcppCGAL has undergone some updates!
+  RcppCGAL has undergone some updates!
 sitemap: false
 ---
 

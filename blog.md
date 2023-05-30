@@ -2,8 +2,7 @@
 layout: list
 title: Blog
 description: >
-  Eric Dunipace's blog
-hide_description: true
+  Statistics is boring, but it has its moments
 permalink: /blog/
 group: true
 ---
