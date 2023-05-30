@@ -25,7 +25,7 @@ In this specific version, I've added a function `cgal_install` to download the h
 ## How do I use it?
 Really, this is a bare bones package simply meant to make the process of including the latest CGAL header files into an R package easier. To use it you just need to install the package in the usual manner from R: `install.packages("RcppCGAL")`. You can also use the `remotes` package to download directly from GitHub. There's a vignette in the package that also describes how to install the header files.
 
-To see what kinds of things are possible with CGAL, I recommend checking out St\'{e}phane Laurent's packages. He details some of them [here](https://laustep.github.io/stlahblog/posts/SurfaceReconstruction.html).
+To see what kinds of things are possible with CGAL, I recommend checking out Stéphane Laurent's packages. He details some of them [here](https://laustep.github.io/stlahblog/posts/SurfaceReconstruction.html).
 
 ## What next?
 Hopefully, there won't be too much more to this package now that it should autoupdate to the latest version of CGAL.
