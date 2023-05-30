@@ -1,8 +1,6 @@
 ---
 layout: post
 title: The Bias-Variance Trade-off
-description: >
-  A page showing Hydejack-specific markdown content.
 sitemap: false
 ---
 
