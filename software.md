@@ -7,6 +7,13 @@ hide_description: true
 
 
 # Software
+
+<div class="body-social sidebar-social">
+       <ul>
+          <li> <a href="https://www.github.com/ericdunipace" title="GitHub" class="no-mark-external" target="_blank"> <span class="icon-github"></span> <span aria-hidden="true">GitHub </span><span class="sr-only">Eric Dunipace's GitHub</span></a></li>
+       </ul>
+</div>
+
 ## R packages
 I currently do most of my coding in R with some C++ sprinkled in thanks to [Rcpp.](https://dirk.eddelbuettel.com/code/rcpp.html)
 

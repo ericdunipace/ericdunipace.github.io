@@ -10,7 +10,7 @@ redirect_from:
   - /welcome/
 ---
 
-# Welcome
+<h2 class="h1" style="color: rgb(0,117,195)">Welcome </h2>
 
 <!--author-->
 
