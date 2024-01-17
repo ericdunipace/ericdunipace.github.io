@@ -25,9 +25,11 @@ redirect_from:
 
 <h2 class="h1" style="color: rgb(0,117,195)">Welcome </h2>
 
-I received my PhD in Biostatistics and am currently a first year resident physician in Psychiatry at Stanford University.
+I received my PhD in Biostatistics and am currently a resident physician in Psychiatry at Stanford University. 
     
 My research explores the ways Optimal Transport methodology can be applied to different statistical inference problems in fields like causal inference and model interpretation. I am also interested in using tools from Bayesian Inference to perform model selection with some of the newly developed models in causal inference.
+
+I also co-founded an emergency response social enterprise in Bangladesh called TraumaLink. To learn more, you can read the [case study](https://caseresources.hsph.harvard.edu/publications/traumalink-providing-trauma-first-aid-services-bangladesh-using).
      
 ---
      
@@ -66,7 +68,7 @@ My research explores the ways Optimal Transport methodology can be applied to di
 
 
   .body-social > ul > li > a {
-    color: #0075c3;
+    /*color: #0075c3;*/
     display: inline;
     text-align: center;
     font-size: 0.95rem;
