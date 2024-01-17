@@ -54,7 +54,7 @@ My research explores the ways Optimal Transport methodology can be applied to di
   }
 
   .body-social > ul > li {
-    float: left;
+    float: center;
     
     /* padding-left: 5px; */
     padding-right: 10px;
