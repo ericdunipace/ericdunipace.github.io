@@ -68,7 +68,7 @@ My research explores the ways Optimal Transport methodology can be applied to di
     text-align: center;
     font-size: 0.95rem;
     font-weight: 300;
-    /*font-color: rgb(0,117,195);*/
+    color: rgb(0,117,195);
     /*width: 3rem;*/
     /*height: 4rem;*/
     padding: 4px;
