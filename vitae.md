@@ -29,7 +29,7 @@ A brief CV is listed below. A longer one is [here](assets/Eric_Dunipace_CV.pdf).
 <!--shamelessly stolen from https://abirsh.github.io-->
 <div class="body-social sidebar-social">
  <ul>
-    <li> <a href="https://www.linkedin.com/in/ericdunipace-" title="LinkedIn" class="no-mark-external" target="_blank"> <span class="icon-linkedin2"></span> <span aria-hidden="true">LinkedIn </span><span class="sr-only">Eric Dunipace's LinkedIn profile</span></a></li>
+    <li> <a href="https://www.linkedin.com/in/ericdunipace" title="LinkedIn" class="no-mark-external" target="_blank"> <span class="icon-linkedin2"></span> <span aria-hidden="true">LinkedIn </span><span class="sr-only">Eric Dunipace's LinkedIn profile</span></a></li>
  </ul>
 </div>
      
