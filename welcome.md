@@ -46,11 +46,13 @@ My research explores the ways Optimal Transport methodology can be applied to di
      
 <style type="text/css">
   .body-social > ul {
-    display: inline-block;
+    /*display: inline-block;*/
     list-style-type: none;
     margin-bottom: 0;
     overflow: hidden;
     padding: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .body-social > ul > li {
