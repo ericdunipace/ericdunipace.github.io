@@ -1,6 +1,6 @@
 ---
   layout: post
-title: RcppCGAL Back On CRAN
+title: RcppCGAL is back on CRAN
 description: >
   RcppCGAL updated and back on CRAN
   sitemap: false
