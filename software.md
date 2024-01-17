@@ -22,4 +22,5 @@ And packages under development include
 * **pycot:** Using optimal transport methods for causal inference in Python
 
 ## Other Code
-Additionally, code to reproduce the results in the paper [*Interpretable Model Summaries Using the Wasserstein Distance*](https://arxiv.org/abs/2012.09999) can be found at [[https://github.com/ericdunipace/SLIMpaper]](https://github.com/ericdunipace/SLIMpaper)
+* Code to reproduce the results in the paper [*Interpretable Model Summaries Using the Wasserstein Distance*](https://arxiv.org/abs/2012.09999) can be found [here](https://github.com/ericdunipace/SLIMpaper).
+* Code to reproduce the results for [*Association Between Periodontal Disease and Cardiovascular Disease (from the NHANES)*](https://pubmed.ncbi.nlm.nih.gov/35773046/) can be found [here](https://github.com/ericdunipace/periodontal).
