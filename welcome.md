@@ -68,7 +68,7 @@ I also co-founded an emergency response social enterprise in Bangladesh called T
 
 
   .body-social > ul > li > a {
-    /*color: #0075c3;*/
+    color: #0075c3;
     display: inline;
     text-align: center;
     font-size: 0.95rem;
@@ -102,7 +102,7 @@ I also co-founded an emergency response social enterprise in Bangladesh called T
 
   .note-sm:before, .note:before {
     font-size: 1rem;
-    color: rgb(0,117,195);
+    /*color: rgb(0,117,195);*/
     
 </style>
 
