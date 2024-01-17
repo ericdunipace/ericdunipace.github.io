@@ -53,7 +53,7 @@ My research explores the ways Optimal Transport methodology can be applied to di
     display: inline;
     text-align: center;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 300;
     /*width: 3rem;*/
     /*height: 4rem;*/
     padding: 4px;
@@ -83,7 +83,7 @@ My research explores the ways Optimal Transport methodology can be applied to di
 
   .note-sm:before, .note:before {
     font-size: 1rem;
-    color: rgb(1,92,171);
+    color: rgb(0,117,195);
 </style>
 
 
