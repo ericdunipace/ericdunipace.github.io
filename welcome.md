@@ -64,11 +64,11 @@ My research explores the ways Optimal Transport methodology can be applied to di
 
 
   .body-social > ul > li > a {
+    color: #0075c3;
     display: inline;
     text-align: center;
     font-size: 0.95rem;
     font-weight: 300;
-    color: rgb(0,117,195);
     /*width: 3rem;*/
     /*height: 4rem;*/
     padding: 4px;
