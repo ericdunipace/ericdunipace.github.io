@@ -33,7 +33,7 @@ My research explores the ways Optimal Transport methodology can be applied to di
      
 <h2 class="h1" style="color: rgb(0,117,195)" id="about">Contact </h2>
      
-**Email**: <span class="blockspam" aria-hidden="true">PLEASE GO AWAY!</span> edunipace@<!-- sdfjsdhfkjypcs -->mail.<!-- osakdjf;laskjf -->harvard.<!-- asdlfkjasdl;jf;laskjf -->edu
+**Email**: <span class="blockspam" aria-hidden="true">PLEASE GO AWAY!</span> edunipace<span class="blockspam" aria-hidden="true">Seriously!</span>@<!-- sdfjsdhfkjypcs -->mail<span class="blockspam" aria-hidden="true">COME ON COME ON!</span>.<!-- osakdjf;laskjf -->harvard<span class="blockspam" aria-hidden="true">PLEASE PLEASE!</span>.<!-- asdlfkjasdl;jf;laskjf -->edu
 
 <!--shamelessly stolen from https://abirsh.github.io-->
 <div class="body-social sidebar-social">
