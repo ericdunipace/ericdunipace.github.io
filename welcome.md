@@ -28,7 +28,7 @@ My research explores the ways Optimal Transport methodology can be applied to di
      
 <h2 class="h1" style="color: rgb(0,117,195)" id="about">Contact </h2>
      
-*Email*: <span class="blockspam" aria-hidden="true">PLEASE GO AWAY!</span> edunipace@<!-- sdfjsdhfkjypcs -->mail.<!-- osakdjf;laskjf -->harvard.<!-- asdlfkjasdl;jf;laskjf -->edu</p>
+**Email**: <span class="blockspam" aria-hidden="true">PLEASE GO AWAY!</span> edunipace@<!-- sdfjsdhfkjypcs -->mail.<!-- osakdjf;laskjf -->harvard.<!-- asdlfkjasdl;jf;laskjf -->edu
      
 <style type="text/css">
   .body-social > ul {
@@ -86,6 +86,4 @@ My research explores the ways Optimal Transport methodology can be applied to di
     color: rgb(1,92,171);
 </style>
 
-span.blockspam {
-  display: none;
-}
+
