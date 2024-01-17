@@ -66,7 +66,7 @@ My research explores the ways Optimal Transport methodology can be applied to di
 
 
   .body-social > ul > li > a {
-    /*color: #0075c3;*/
+    color: #0075c3;
     display: inline;
     text-align: center;
     font-size: 0.95rem;
