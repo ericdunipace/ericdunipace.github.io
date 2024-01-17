@@ -40,8 +40,8 @@ I also co-founded an emergency response social enterprise in Bangladesh called T
 <!--shamelessly stolen from https://abirsh.github.io-->
 <div class="body-social sidebar-social">
  <ul>
-    <li> <a href="https://www.linkedin.com/in/ericdunipace" title="LinkedIn" class="no-mark-external" target="_blank"> <span class="icon-linkedin2"></span> <span aria-hidden="true">LinkedIn </span><span class="sr-only">Eric Dunipace's LinkedIn profile</span></a></li>
     <li> <a href="https://scholar.google.com/citations?user=3jEeGzUAAAAJ&hl=en&authuser=1" title="Google Scholar" class="no-mark-external" target="_blank"> <span class="icon-googlescholar"></span> <span aria-hidden="true">Google Scholar </span><span class="sr-only">Eric Dunipace's Google Scholar page</span></a></li>
+    <li> <a href="https://www.linkedin.com/in/ericdunipace" title="LinkedIn" class="no-mark-external" target="_blank"> <span class="icon-linkedin2"></span> <span aria-hidden="true">LinkedIn </span><span class="sr-only">Eric Dunipace's LinkedIn profile</span></a></li>
     <li> <a href="https://www.github.com/ericdunipace" title="GitHub" class="no-mark-external" target="_blank"> <span class="icon-github"></span> <span aria-hidden="true">GitHub </span><span class="sr-only">Eric Dunipace's GitHub</span></a></li>
  </ul>
 </div>

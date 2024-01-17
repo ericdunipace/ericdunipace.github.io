@@ -22,7 +22,7 @@ A brief CV is listed below. A longer one is [here](assets/Eric_Dunipace_CV.pdf).
 
 ### Select other positions
 * 2013--Present: Co-Founder, [TraumaLink](http://www.traumalink.net)
-* 2015--2016: Co-President, Connecting Californians to Care, UCLA
+* 2015--2016: Co-President, [Connecting Californians to Care](https://ama.dgsom.ucla.edu/pages/connecting-californians), UCLA
 * 2006--2008: Research Assistant, [Vance Lab](https://vancelab.berkeley.edu), UC Berkeley
 
 ---
