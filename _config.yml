@@ -102,7 +102,7 @@ remote_theme: hydecorp/hydejack@v9.1.6
 accent_image:          none
 #accent_color:          rgb(79,177,186)
 #accent_color:          rgb(0, 87, 156)
-# accent_color:          rgb(0,117,195) # light blue
+accent_color:          rgb(0,117,195) # light blue
 
 # This is used for the `theme-color` meta tag,
 # which changes the background color of the browser UI in certain browsers.
