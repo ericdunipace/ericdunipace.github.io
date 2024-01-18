@@ -8,7 +8,7 @@ hide_description: true
 
 <h2 class="h1" style="color: rgb(0,117,195)">Research </h2>
 
-A full list of my publications is available on my [Google Scholar profile.](https://scholar.google.com/citations?user=3jEeGzUAAAAJ&hl=en&authuser=1) Among my research interests are
+A full list of my publications is available on my [Google Scholar profile.](https://scholar.google.com/citations?user=3jEeGzUAAAAJ&hl=en&authuser=1) Among my research interests are:
 
 * Causal Inference
     * Using recent advancements in Optimal Transport, I'm interested in exploring the connections between importance sampling and weighting methods used for causal inference [[http://arxiv.org/abs/2109.01991]](http://arxiv.org/abs/2109.01991)
