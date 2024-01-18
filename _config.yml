@@ -47,7 +47,7 @@ apple_touch_icon: /assets/img/logo.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                Eric A. Dunipace
+  name:                Eric Dunipace
   email:               edunipace@mail.harvard.edu
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
@@ -76,7 +76,7 @@ menu:
 #    url:               /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             Eric A. Dunipace © 2024. All rights reserved.
+copyright:             Eric Dunipace © 2024. All rights reserved.
 
 # Format of the permalinks
 permalink:             /:categories/:year-:month-:day-:title/
@@ -100,8 +100,9 @@ remote_theme: hydecorp/hydejack@v9.1.6
 # Sidebar image and theme color of the site.
 #accent_image:          /assets/img/sidebar-bg.jpg
 accent_image:          none
+# accent_color:          #949667
 #accent_color:          rgb(79,177,186)
-#accent_color:          rgb(0, 87, 156)
+# accent_color:          rgb(0, 87, 156)
 accent_color:          rgb(0,117,195) # light blue
 
 # This is used for the `theme-color` meta tag,
@@ -109,6 +110,7 @@ accent_color:          rgb(0,117,195) # light blue
 # Defaults to `accent_color`.
 #theme_color:           rgb(8,46,57)
 #theme_color:           rgb(0, 87, 156)
+# theme_color:           #000000
 theme_color:           rgb(0,117,195)
 
 

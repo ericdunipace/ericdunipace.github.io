@@ -23,7 +23,7 @@ redirect_from:
 	}
 </style>
 
-<h2 class="h1" style="color: rgb(0,117,195)">Welcome </h2>
+# Welcome
 
 I received my PhD in biostatistics and am currently a resident physician in psychiatry at Stanford University. 
     
@@ -33,7 +33,7 @@ I also co-founded an emergency response social enterprise in Bangladesh called T
      
 ---
      
-<h2 class="h1" style="color: rgb(0,117,195)" id="about">Contact </h2>
+# Contact
      
 **Email**: <span class="blockspam" aria-hidden="true">PLEASE GO AWAY!</span> edunipace<span class="blockspam" aria-hidden="true">Seriously!</span>@<!-- sdfjsdhfkjypcs -->mail<span class="blockspam" aria-hidden="true">COME ON COME ON!</span>.<!-- osakdjf;laskjf -->harvard<span class="blockspam" aria-hidden="true">PLEASE PLEASE!</span>.<!-- asdlfkjasdl;jf;laskjf -->edu
 
@@ -102,7 +102,7 @@ I also co-founded an emergency response social enterprise in Bangladesh called T
 
   .note-sm:before, .note:before {
     font-size: 1rem;
-    /*color: rgb(0,117,195);*/
+    color: rgb(0,117,195);
     
 </style>
 
