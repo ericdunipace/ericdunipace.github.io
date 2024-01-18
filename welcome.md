@@ -37,7 +37,7 @@ I also co-founded an emergency response social enterprise in Bangladesh called T
      
 **Email**: <span class="blockspam" aria-hidden="true">PLEASE GO AWAY!</span> edunipace<span class="blockspam" aria-hidden="true">Seriously!</span>@<!-- sdfjsdhfkjypcs -->mail<span class="blockspam" aria-hidden="true">COME ON COME ON!</span>.<!-- osakdjf;laskjf -->harvard<span class="blockspam" aria-hidden="true">PLEASE PLEASE!</span>.<!-- asdlfkjasdl;jf;laskjf -->edu
 
-<!--shamelessly stolen from https://abirsh.github.io
+<!--shamelessly stolen from https://abirsh.github.io-->
 <div class="body-social sidebar-social">
  <ul>
     <li> <a href="https://www.github.com/ericdunipace" title="GitHub" class="no-mark-external" target="_blank"> <span class="icon-github"></span> <span aria-hidden="true">GitHub </span><span class="sr-only">Eric Dunipace's GitHub</span></a></li>
@@ -106,4 +106,4 @@ I also co-founded an emergency response social enterprise in Bangladesh called T
     
 </style>
 
--->
+
