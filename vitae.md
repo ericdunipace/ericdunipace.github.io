@@ -5,9 +5,7 @@ description: >
 hide_description: true
 permalink: /vitae/
 ---
-
-
-<h2 class="h1" style="color: rgb(0,117,195)">Vitae </h2>
+# Vitae
 
 A brief CV is listed below. A longer one is [here](assets/Eric_Dunipace_CV.pdf).
 

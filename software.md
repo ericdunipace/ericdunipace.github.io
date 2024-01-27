@@ -4,9 +4,7 @@ description: >
   Software packages
 hide_description: true
 ---
-
-
-<h2 class="h1" style="color: rgb(0,117,195)">Software </h2>
+# Software
 
 ## R packages
 I currently do most of my coding in R with some C++ sprinkled in thanks to [Rcpp.](https://dirk.eddelbuettel.com/code/rcpp.html)

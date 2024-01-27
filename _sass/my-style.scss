@@ -15,4 +15,25 @@
 
 h1, .homeheader {
     color: rgb(0,117,195);
+    //color: rgb(100,0,195);
 } 
+
+
+.navbar>.content::before {
+  box-shadow: none;
+}
+
+/*  put on page where you want this
+<style type="text/css">
+.page-title {
+		position: absolute;
+		width: 1px;
+  		height: 1px;
+  		margin: -1px;
+  		border: 0;
+  		padding: 0;
+  		clip: rect(0 0 0 0);
+  		overflow: hidden;
+}
+</style>
+} */

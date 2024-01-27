@@ -9,20 +9,6 @@ permalink: /
 redirect_from:
   - /welcome/
 ---
-
-<style type="text/css">
-	.page-title {
-		position: absolute;
-		width: 1px;
-  		height: 1px;
-  		margin: -1px;
-  		border: 0;
-  		padding: 0;
-  		clip: rect(0 0 0 0);
-  		overflow: hidden;
-	}
-</style>
-
 # Welcome
 
 I received my PhD in biostatistics and am currently a resident physician in psychiatry at Stanford University. 
