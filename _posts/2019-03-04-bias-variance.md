@@ -79,8 +79,8 @@ output <- foreach(i = 1:nexperiment) %dorng% {
 	marginal = list(mle = sigma_marg_mle, unbiased = sigma_marg_unb)))
 }
 # Marginal Variance
-sigma_marg_mle <- sapply(output, function(res) res$$marginal$$mle)
-sigma_marg_unb <- sapply(output, function(res) res$$marginal$$unbiased)
+sigma_marg_mle <- sapply(output, function(res) res$marginal$mle)
+sigma_marg_unb <- sapply(output, function(res) res$marginal$unbiased)
 
 sigma_df_marg <- data.frame(sigma = c(sigma_marg_mle, sigma_marg_unb), Method = c(rep("MLE", nexperiment), 
 	rep("Unbiased", nexperiment)))
@@ -93,8 +93,8 @@ annotate(geom="text", x = E_marg, y=c(1.5,2.9), label = marg_vars)
 
 
 # Regression Variance
-sigma_hat_mle <- sapply(output, function(res) res$$conditional$$mle)
-sigma_hat_unb <- sapply(output, function(res) res$$conditional$$unbiased)
+sigma_hat_mle <- sapply(output, function(res) res$conditional$mle)
+sigma_hat_unb <- sapply(output, function(res) res$conditional$unbiased)
 
 vars <- paste0("Variance = ",format(c(var(sigma_hat_mle),var(sigma_hat_unb)),digits=1))
 E_sigma <- c(mean(sigma_hat_mle), mean(sigma_hat_unb) )
