@@ -8,7 +8,7 @@ As you get into statistics, you hear people talk about the "bias-variance trade-
 
 To answer this, imagine we have some data $$y_1, y_2, y_3,...,y_n$$. The first thing we often want to do is calculate the mean, $$\overline{y} = \frac{1}{n} \sum_{i=1}^n y_i$$  and variance $$s^2 = \frac{1}{n-1}\sum_{i=1}^n  \left(y_i - \overline{y} \right )^2$$. We learn in our first statistics class to get the sample mean we divide by $$n$$ but to get the sample variance we divide by $$n-1$$; I remember this being terribly confusing.  To add to the confusion, if we instead divide by $$latex n$$ in our estimate of the sample variance $$\left( \frac{1}{n}\sum_{i=1}^n  \left(y_i - \overline{y} \right )^2\right)$$, we obtain what is known as the maximum likelihood estimator (MLE) of the variance, which also sounds like a good thing (Maximum! Likelihood!? Sign me up!). We have $$n$$ data points, so why don't we want to divide both the mean and variance by $$n$$?
 
-The reason is that if we divide by $$latex n$$ to calculate the variance, our estimate is biased. But will the variance of our estimate also be lower? Yes!
+The reason is that if we divide by $$n$$ to calculate the variance, our estimate is biased. But will the variance of our estimate also be lower? Yes!
 
 If we repeatedly draw datasets of size 1000 from a Normal(0,1) distribution and calculate the variance for each dataset with both methods, we'll get a distribution of estimates. With this distribution we'll get a sense of how much each estimator is biased but also the variance of the estimator. This is what is displayed in figure 1 below. You can see the sampling distribution for both methods with the variance of our estimates given on the figure.
 
@@ -41,66 +41,66 @@ require(ggridges)
 
 if (parallel::detectCores() &gt; 1) {
 	library(parallel)
-	ncores &lt;- detectCores() - 2
+	ncores <- detectCores() - 2
 	library(doParallel)
 	library(foreach)
 	library(doRNG)
 	registerDoParallel(cores = ncores)
 }
 
-nexperiment &lt;- 1000 # number of replications
-n &lt;- 1000 # number of observations
-p &lt;- 500 # number of parameters
+nexperiment <- 1000 # number of replications
+n <- 1000 # number of observations
+p <- 500 # number of parameters
 set.seed(11)
 
 #set regression coefficients
-beta &lt;- rnorm(p)
+beta <- rnorm(p)
 
-output &lt;- foreach(i = 1:nexperiment) %dorng% {
+output <- foreach(i = 1:nexperiment) %dorng% {
 	# data
-	X &lt;- rmvnorm(n, sigma = diag(1, p, p))
-	Y &lt;- X %*% beta + rnorm(n)
+	X <- rmvnorm(n, sigma = diag(1, p, p))
+	Y <- X %*% beta + rnorm(n)
 
 	# model
-	fit &lt;- lm(Y ~ X + 0) # add 0 to make sure R does not fit an intercept
-	bhat &lt;- fit$$coef
+	fit <- lm(Y ~ X + 0) # add 0 to make sure R does not fit an intercept
+	bhat <- fit$$coef
 
 	#variance
-	sigma_mle &lt;- sum((Y - X %*% bhat)^2)/n
-	sigma_unb &lt;- sum((Y - X %*% bhat)^2)/(n - p)
+	sigma_mle <- sum((Y - X %*% bhat)^2)/n
+	sigma_unb <- sum((Y - X %*% bhat)^2)/(n - p)
 	
-	Z &lt;- Y/sqrt(sum(beta^2)+1)
+	Z <- Y/sqrt(sum(beta^2)+1)
 	
-	sigma_marg_unb &lt;- sum((Z - mean(Z))^2)/(n-1)
-	sigma_marg_mle &lt;- sum((Z - mean(Z))^2)/n
+	sigma_marg_unb <- sum((Z - mean(Z))^2)/(n-1)
+	sigma_marg_mle <- sum((Z - mean(Z))^2)/n
 
 	#output
 	return(list(conditional =list(mle = sigma_mle, unbiased = sigma_unb),
 	marginal = list(mle = sigma_marg_mle, unbiased = sigma_marg_unb)))
 }
 # Marginal Variance
-sigma_marg_mle &lt;- sapply(output, function(res) res$$marginal$$mle)
-sigma_marg_unb &lt;- sapply(output, function(res) res$$marginal$$unbiased)
+sigma_marg_mle <- sapply(output, function(res) res$$marginal$$mle)
+sigma_marg_unb <- sapply(output, function(res) res$$marginal$$unbiased)
 
-sigma_df_marg &lt;- data.frame(sigma = c(sigma_marg_mle, sigma_marg_unb), Method = c(rep("MLE", nexperiment), 
+sigma_df_marg <- data.frame(sigma = c(sigma_marg_mle, sigma_marg_unb), Method = c(rep("MLE", nexperiment), 
 	rep("Unbiased", nexperiment)))
 	
-marg_vars &lt;- paste0("Variance = ",format(c(var(sigma_marg_mle), var(sigma_marg_unb)),digits=4))
-E_marg &lt;- c(mean(sigma_marg_mle), mean(sigma_marg_unb))
+marg_vars <- paste0("Variance = ",format(c(var(sigma_marg_mle), var(sigma_marg_unb)),digits=4))
+E_marg <- c(mean(sigma_marg_mle), mean(sigma_marg_unb))
 
 ggplot(sigma_df_marg, aes(x = sigma, y = Method)) + geom_density_ridges() + xlab("Sigma^2") +
 annotate(geom="text", x = E_marg, y=c(1.5,2.9), label = marg_vars)
 
 
 # Regression Variance
-sigma_hat_mle &lt;- sapply(output, function(res) res$$conditional$$mle)
-sigma_hat_unb &lt;- sapply(output, function(res) res$$conditional$$unbiased)
+sigma_hat_mle <- sapply(output, function(res) res$$conditional$$mle)
+sigma_hat_unb <- sapply(output, function(res) res$$conditional$$unbiased)
 
-vars &lt;- paste0("Variance = ",format(c(var(sigma_hat_mle),var(sigma_hat_unb)),digits=1))
-E_sigma &lt;- c(mean(sigma_hat_mle), mean(sigma_hat_unb) )
+vars <- paste0("Variance = ",format(c(var(sigma_hat_mle),var(sigma_hat_unb)),digits=1))
+E_sigma <- c(mean(sigma_hat_mle), mean(sigma_hat_unb) )
 
 
-sigma_df &lt;- data.frame(sigma = c(sigma_hat_mle, sigma_hat_unb), Method = c(rep("MLE", nexperiment), 
+sigma_df <- data.frame(sigma = c(sigma_hat_mle, sigma_hat_unb), Method = c(rep("MLE", nexperiment), 
 	rep("Unbiased", nexperiment)))
 
 ggplot(sigma_df, aes(x = sigma, y = Method)) + geom_density_ridges() + xlab("Sigma^2") +
