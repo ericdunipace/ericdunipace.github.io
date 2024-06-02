@@ -6,7 +6,7 @@ sitemap: false
 
 As you get into statistics, you hear people talk about the "bias-variance trade-off" a lot. And when people mention it, they will often start discussing the mean-squared error, which is a function of the bias and variance of an estimator. Then you start looking at formulas. But what does this concept mean intuitively?
 
-To answer this, imagine we have some data $$y_1, y_2, y_3,...,y_n$$. The first thing we often want to do is calculate the mean, $$\overline{y} = \frac{1}{n} \sum_{i=1}^n y_i$$  and variance $$s^2 = \frac{1}{n-1}\sum_{i=1}^n  \left(y_i - \overline{y} \right )^2$$. We learn in our first statistics class to get the sample mean we divide by $$n$$ but to get the sample variance we divide by $$n-1$$; I remember this being terribly confusing.  To add to the confusion, if we instead divide by $$latex n$$ in our estimate of the sample variance $$\left( \frac{1}{n}\sum_{i=1}^n  \left(y_i - \overline{y} \right )^2\right)$$, we obtain what is known as the maximum likelihood estimator (MLE) of the variance, which also sounds like a good thing (Maximum! Likelihood!? Sign me up!). We have $$n$$ data points, so why don't we want to divide both the mean and variance by $$n$$?
+To answer this, imagine we have some data $$y_1, y_2, y_3,...,y_n$$. The first thing we often want to do is calculate the mean, $$\overline{y} = \frac{1}{n} \sum_{i=1}^n y_i$$  and variance $$s^2 = \frac{1}{n-1}\sum_{i=1}^n  \left(y_i - \overline{y} \right )^2$$. We learn in our first statistics class to get the sample mean we divide by $$n$$ but to get the sample variance we divide by $$n-1$$; I remember this being terribly confusing.  To add to the confusion, if we instead divide by $$n$$ in our estimate of the sample variance $$\left( \frac{1}{n}\sum_{i=1}^n  \left(y_i - \overline{y} \right )^2\right)$$, we obtain what is known as the maximum likelihood estimator (MLE) of the variance, which also sounds like a good thing (Maximum! Likelihood!? Sign me up!). We have $$n$$ data points, so why don't we want to divide both the mean and variance by $$n$$?
 
 The reason is that if we divide by $$n$$ to calculate the variance, our estimate is biased. But will the variance of our estimate also be lower? Yes!
 
@@ -39,7 +39,7 @@ require(doRNG)
 require(ggplot2)
 require(ggridges)
 
-if (parallel::detectCores() &gt; 1) {
+if (parallel::detectCores() < 1) {
 	library(parallel)
 	ncores <- detectCores() - 2
 	library(doParallel)
@@ -82,27 +82,32 @@ output <- foreach(i = 1:nexperiment) %dorng% {
 sigma_marg_mle <- sapply(output, function(res) res$marginal$mle)
 sigma_marg_unb <- sapply(output, function(res) res$marginal$unbiased)
 
-sigma_df_marg <- data.frame(sigma = c(sigma_marg_mle, sigma_marg_unb), Method = c(rep("MLE", nexperiment), 
-	rep("Unbiased", nexperiment)))
+sigma_df_marg <- data.frame(sigma = c(sigma_marg_mle, sigma_marg_unb), 
+  Method = c(rep("MLE", nexperiment), rep("Unbiased", nexperiment)))
 	
-marg_vars <- paste0("Variance = ",format(c(var(sigma_marg_mle), var(sigma_marg_unb)),digits=4))
-E_marg <- c(mean(sigma_marg_mle), mean(sigma_marg_unb))
+marg_vars <- paste0("Variance = ",format(c(var(sigma_marg_mle), 
+  var(sigma_marg_unb)),digits=4))
+  E_marg <- c(mean(sigma_marg_mle), mean(sigma_marg_unb))
 
-ggplot(sigma_df_marg, aes(x = sigma, y = Method)) + geom_density_ridges() + xlab("Sigma^2") +
-annotate(geom="text", x = E_marg, y=c(1.5,2.9), label = marg_vars)
+ggplot(sigma_df_marg, aes(x = sigma, y = Method)) + 
+  geom_density_ridges() + xlab("Sigma^2") +
+  annotate(geom="text", x = E_marg, y=c(1.5,2.9), label = marg_vars)
 
 
 # Regression Variance
 sigma_hat_mle <- sapply(output, function(res) res$conditional$mle)
 sigma_hat_unb <- sapply(output, function(res) res$conditional$unbiased)
 
-vars <- paste0("Variance = ",format(c(var(sigma_hat_mle),var(sigma_hat_unb)),digits=1))
+vars <- paste0("Variance = ",format(c(var(sigma_hat_mle),
+  var(sigma_hat_unb)),digits=1))
 E_sigma <- c(mean(sigma_hat_mle), mean(sigma_hat_unb) )
 
 
-sigma_df <- data.frame(sigma = c(sigma_hat_mle, sigma_hat_unb), Method = c(rep("MLE", nexperiment), 
+sigma_df <- data.frame(sigma = c(sigma_hat_mle, sigma_hat_unb), 
+  Method = c(rep("MLE", nexperiment), 
 	rep("Unbiased", nexperiment)))
 
-ggplot(sigma_df, aes(x = sigma, y = Method)) + geom_density_ridges() + xlab("Sigma^2") +
-annotate(geom="text", x = E_sigma, y=c(0.9,1.9), label = vars)
+ggplot(sigma_df, aes(x = sigma, y = Method)) + 
+  geom_density_ridges() + xlab("Sigma^2") +
+  annotate(geom="text", x = E_sigma, y=c(0.9,1.9), label = vars)
 ~~~
