@@ -1,5 +1,5 @@
 ---
-  layout: post
+layout: post
 title: RcppCGAL is back on CRAN
 description: >
   RcppCGAL updated and back on CRAN

@@ -4,16 +4,6 @@ title: WpProj hits CRAN!
 description: >
   My first package is finally live on CRAN
 sitemap: false
-output: 
-  md_document:
-    variant: gfm
-    preserve_yaml: true
-knit: (function(input, ...) {
-    rmarkdown::render(
-      input,
-      output_dir = "../"
-    )
-  })
 ---
 
 This package was quite a mess. It was the first one I’d ever decided to
@@ -51,7 +41,6 @@ in $$g$$ would be close in some sense to $$f$$. We desire
 2.  Interpretability: we should be able to understand what’s happening
     in $$g$$. This also implies our models can’t have too many
     coefficients.
-3.  
 
 Let’s address each of these in turn. For 1, we need some way of ensuring
 predictive distributions are close to one another. One such metric is

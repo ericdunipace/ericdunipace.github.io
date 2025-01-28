@@ -30,7 +30,7 @@ The MLE does have lower variance—75% smaller—but it is quite biased! The tru
 
 R Code to replicate this post is below:
 
-~~~ r
+```r
 #bias variance
 rm(list = ls())
 
@@ -110,4 +110,4 @@ sigma_df <- data.frame(sigma = c(sigma_hat_mle, sigma_hat_unb),
 ggplot(sigma_df, aes(x = sigma, y = Method)) + 
   geom_density_ridges() + xlab("Sigma^2") +
   annotate(geom="text", x = E_sigma, y=c(0.9,1.9), label = vars)
-~~~
+```
