@@ -48,17 +48,6 @@ ninja.data = [{
           window.location.href = "/blog/2024/WpProj-Package-Is-Live/";
         
       },
-    },{id: "post-wpproj-hits-cran",
-      
-        title: "WpProj hits CRAN!",
-      
-      description: "My first package is finally live on CRAN",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2024/WpProj-Package-Is-Live/";
-        
-      },
     },{id: "post-rcppcgal-is-back-on-cran",
       
         title: "RcppCGAL is back on CRAN",
