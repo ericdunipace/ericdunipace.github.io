@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-repositories",
           title: "repositories",
-          description: "Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/repositories/";
@@ -59,22 +59,11 @@ ninja.data = [{
           window.location.href = "/blog/2024/WpProj-Package-Is-Live/";
         
       },
-    },{id: "post-asan-error-on-cran",
+    },{id: "post-rcppcgal-is-back-on-cran",
       
-        title: "Asan Error On Cran",
+        title: "RcppCGAL is back on CRAN",
       
-      description: "",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2024/ASAN-Error-on-CRAN/";
-        
-      },
-    },{id: "post-rcppcgal-back-on-cran",
-      
-        title: "Rcppcgal Back On Cran",
-      
-      description: "",
+      description: "RcppCGAL updated and back on CRAN sitemap: false",
       section: "Posts",
       handler: () => {
         
