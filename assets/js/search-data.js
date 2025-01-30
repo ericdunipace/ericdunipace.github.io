@@ -125,7 +125,10 @@ ninja.data = [{
           window.location.href = "/blog/2019/bias-variance/";
         
       },
-    },{
+    },{id: "news-a-new-website-look-is-live-sparkles-smile",
+          title: 'A new website look is live! :sparkles: :smile:',
+          description: "",
+          section: "News",},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
