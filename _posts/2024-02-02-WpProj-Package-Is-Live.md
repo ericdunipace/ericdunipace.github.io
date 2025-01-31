@@ -6,8 +6,12 @@ description: >
 sitemap: false
 ---
 
+**Edit (1/30/2025):** *This package was archived on CRAN in November 2024 due to a package it depended on being archived. Working on getting it back up ASAP *
+
+------------------------------------------------------------------------
+
 This package was quite a mess. It was the first one I’d ever decided to
-do and filled with naivete and hubris, I thought it would be a good
+do and filled with na"ivet'e and hubris, I thought it would be a good
 idea to make a package to load all my functions. It definitely took a
 long time—especially because a lot of the code was adapting someone
 else’s C++ code to run for my purpose!—but I think it’s not too bad.
@@ -78,20 +82,199 @@ Cool!
 
 ## Let’s see an example
 
-Ok, say we have
+Ok, say we have some covariate data, $$X$$, and an outcome, $$Y$$. In
+many cases, the size of $$X$$ can be quite large—in the 100s or 1000s.
+The question of then how to interpret this model can be tough: what
+covariates do we focus on? Moreover, the model itself may not be
+interpretable to begin with, such as from a Gaussian Process, a neural
+network, etc.
 
-### Estimating model
+### Estimating a data model
 
-For exposition, we will keep it simple
+For exposition, we will generate our data from a hard to interpret,
+non-linear model and then fit a Bayesian Gaussian Process regression to
+estimate the response surface. The set-up will be somewhat complicated
+but it’s basically to generate complicated data and fit a complicated
+model.
+
+First, let’s assume our data is drawn from the following distributions.
+Let $$p = 10$$ and $$n = 1000$$. Take
+
+$$ X_i \sim \mathcal{N} (0, \mathbb{I}_p)$$
+
+and
+
+$$ Y_i = \beta_0 + \sum_{k=1}^p \beta_k X_{i,k} + \sum_{k=1,k' >k }^p \alpha_{k,k'} X_{i,k} X_{i,k'} + \epsilon_i$$
+
+where $$\epsilon_{1:n} \sim^{iid} \mathcal{N}(0,1)$$. We can generate
+the parameters of this generating function by taking
+$$\beta_0, \beta_{1:p}, \alpha \sim \mathcal{N}(0,1)$$ and
+$$\epsilon_{1:n} \sim \mathcal{N}(0,1)$$
+
+Then, assume for some reason we know the true model (this is so we can
+run all of the methods for our package). And we will fit a Bayesian
+regression model directly on this model.
+
+We can assume normal priors on the coefficients (which will be the same
+as the data generating process above), and a half-normal prior on the
+standard deviation: $$\sigma \sim \mathcal{N}^{+}(0,1)$$
+
+We can then fit this model with the following `R` code:
+
+``` r
+library(rstan)
+
+# Simulated Data
+set.seed(42)
+n <- 2^10
+p <- 10
+
+# parameters
+beta <- rnorm(p + choose(p,2))
+beta_0 <- rnorm(1)
+
+# data
+x <- matrix(rnorm(n * p), n, p)
+mm<- model.matrix(~ 0 + .*., data = data.frame(x))
+y <- c(mm %*% beta + beta_0 + rnorm(n))
+
+code <- '
+data {
+  int N;
+  int P;
+  vector[N] Y;
+  matrix[N,P] X;
+}
+parameters {
+  vector[P] beta;
+  real<lower=0> sigma;
+  real beta_0;
+}
+model {
+  vector[N] mu_raw = X * beta + beta_0;
+  
+  beta_0 ~ normal(0,1);
+  beta ~ normal(0,1);
+  sigma ~ normal(0,1);
+  Y ~ normal(mu_raw, sigma);
+}
+generated quantities {
+  vector[N] mu = X * beta + beta_0;
+}
+'
+
+fit <- stan(model_code = code, 
+            data = list(N = n, P = ncol(mm), Y = y, X = mm),
+            iter = 500, chains = 4, cores = 4)
+```
 
 ### Interpretable model
 
+We can estimate an interpretable model, which essentially ammounts to
+fitting regression to the samples. How we do this can vary for our
+methods. Since we *know* the true model, we may simply seek to turn the
+covariates on our off and get our set of interpretable coefficients.
+Alternatively, we may want to find an approximate model with new
+coefficients. We can do both in the framework briefly described above.
+
+However, it is important to consider *what* we want to interpret. We
+could want to know how the model roughly functions globally, or which
+covariates could be the most important, but we may also want to know
+which covariates are driving the prediction for a single individual and
+consider the most important ones.
+
+Let’s say we’re interested in the 5th individual in our data. We can pul
+their data
+
+``` r
+X_mm  <- cbind(1,mm)
+X_test <- X_mm[5,]
+```
+
+And then we can run our interpretable models. We first run our set that
+can get interpretable models for a single data point–i.e., by simply
+turning coefficients on or off that best predict the data:
+
+``` r
+library(WpProj)
+
+# get parameters
+mu <- extract(fit, pars = "mu")$mu
+beta <- do.call("cbind", extract(fit, pars = c("beta_0","beta")))
+
+# get prediction
+mu_test <- mu[,5]
+  
+# get interpretable models            
+bp <- WpProj(X = X_test, eta = mu_test, theta = beta,
+             power = 2, method = "binary program",
+             solver = "ecos",
+             options = list(display.progress = TRUE))
+
+approx <- WpProj(X = X_test, eta = mu_test, theta = beta,
+                 power = 2, method = "binary program",
+                 solver = "lasso",
+             options = list(display.progress = TRUE))
+```
+
+We can also fit a model that adapts the coefficients. To do so, we need
+to create a pseudo neighborhood round our point of interest
+
+``` r
+library(mvtnorm)
+
+pp <- ncol(mm) 
+
+# generate the neighborhood arround the point
+X_neigh <- mvtnorm::rmvnorm(100, mean = X_test[-1], sigma = cov(X_mm[,-1])/n)
+
+# get predictions for the neighborhood
+mu_neigh <- cbind(1,X_neigh) %*% t(beta)
+
+# get projection
+proj <- WpProj(X = cbind(1,X_neigh), eta = mu_neigh, 
+               theta = beta,
+               power = 2, method = "L1",
+               solver = "lasso")
+```
+
 ### Performance Evaluation
 
-- example: maybe simple normal model, bayesian
-- then show predictions (how?)
-- then show estimating simpler model
-- show outputs
+For our individual, they have an average predicted value of -6.7314591.
+
+``` r
+# Check WpR2
+rp <- WpProj::ridgePlot(fit = list("BP" = bp,
+                                    "approxBP" = approx,
+                                    "projection" = proj),
+                          full = mu_test
+                          )
+
+print(rp)
+```
+
+![](/Users/eifer/GoogleDrive/ericdunipace.github.io/_posts/2024-02-02-WpProj-Package-Is-Live_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+We can see that the interpretable models do a better job of predicting
+as covariates are added but we might need more than just 10 covariates
+to really do a good job here.
+
+``` r
+# Check WpR2
+wpr2 <- WpProj::WPR2(predictions = mu_test,
+             projected_model = list("BP" = bp,
+                                    "approxBP" = approx,
+                                    "projection" = proj),
+             base = rep(0, 1000))
+
+plot(wpr2)
+```
+
+![](/Users/eifer/GoogleDrive/ericdunipace.github.io/_posts/2024-02-02-WpProj-Package-Is-Live_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+This last statistic functions kinda like $$R^2$$ values in regression
+except it is measuring how close one is between a null model and the
+original predictions.
 
 ## Extensions
 
