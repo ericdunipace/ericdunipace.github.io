@@ -233,7 +233,7 @@ rp <- WpProj::ridgePlot(fit = list("BP" = bp,
 print(rp)
 ```
 
-![](/Users/eifer/GoogleDrive/ericdunipace.github.io/_posts/2024-02-02-WpProj-Package-Is-Live_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![Full-width image](_posts/2024-02-02-WpProj-Package-Is-Live_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 We can see that the interpretable models do a better job of predicting
 as covariates are added but we might need more than just 10 covariates
@@ -250,7 +250,7 @@ wpr2 <- WpProj::WPR2(predictions = mu_test,
 plot(wpr2)
 ```
 
-![](/Users/eifer/GoogleDrive/ericdunipace.github.io/_posts/2024-02-02-WpProj-Package-Is-Live_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![Full-width image](_posts/2024-02-02-WpProj-Package-Is-Live_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 This last statistic functions kinda like $$R^2$$ values in regression
 except it is measuring how close one is between a null model and the
