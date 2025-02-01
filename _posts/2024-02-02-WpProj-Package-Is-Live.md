@@ -91,33 +91,26 @@ network, etc.
 
 ### Estimating a data model
 
-For exposition, we will generate our data from a hard to interpret,
-non-linear model and then fit a Bayesian Gaussian Process regression to
-estimate the response surface. The set-up will be somewhat complicated
-but it’s basically to generate complicated data and fit a complicated
-model.
+For exposition, we will generate our data from a hard to interpret, non-linear model and then fit a Bayesian Gaussian Process regression to estimate the response surface. The set-up will be somewhat complicated but it's basically to generate complicated data and fit a complicated model.
 
-First, let’s assume our data is drawn from the following distributions.
-Let $$p = 10$$ and $$n = 1000$$. Take
+First, let's assume our data is drawn from the following distributions. Let $$p = 10$$ and $$n = 1000$$. 
+Take
 
-$$ X_i \sim \mathcal{N} (0, \mathbb{I}_p)$$
+$$ X_j \sim \mathcal{N} (0, \mathbb{I}_p)$$
 
-and
+and 
 
-$$ Y_i = \beta_0 + \sum_{k=1}^p \beta_k X_{i,k} + \sum_{k=1,k' >k }^p \alpha_{k,k'} X_{i,k} X_{i,k'} + \epsilon_i$$
+$$ Y_j = f(X_j) + \epsilon_j$$
 
-where $$\epsilon_{1:n} \sim^{iid} \mathcal{N}(0,1)$$. We can generate
-the parameters of this generating function by taking
-$$\beta_0, \beta_{1:p}, \alpha \sim \mathcal{N}(0,1)$$ and
-$$\epsilon_{1:n} \sim \mathcal{N}(0,1)$$
+where $$\epsilon_{1:n} \sim \mathcal{N}(0,1)$$. The function $f$ is defined as
 
-Then, assume for some reason we know the true model (this is so we can
-run all of the methods for our package). And we will fit a Bayesian
-regression model directly on this model.
+$$ f(X_j) = \alpha_0 + \sum_{k=1}^p \alpha_k X_{j,k} + \sum_{k=1, k' >k }^p \delta_{k,k'} X_{j,k} X_{j,k'}.$$
 
-We can assume normal priors on the coefficients (which will be the same
-as the data generating process above), and a half-normal prior on the
-standard deviation: $$\sigma \sim \mathcal{N}^{+}(0,1)$$
+We can generate the parameters of this generating function by taking $$\alpha_0, \alpha, \delta \sim \mathcal{N}(0,1)$$ and $$\epsilon_{1:n} \sim \mathcal{N}(0,1)$$
+
+Then, assume for some reason we know the true model (this is so we can run all of the methods for our package). And we will fit a Bayesian regression model directly on this model.
+
+We can assume normal priors on the coefficients (which will be the same as the data generating process above), and a half-normal prior on the standard deviation: $$\sigma \sim \mathcal{N}^{+}(0,1)$$
 
 We can then fit this model with the following `R` code:
 
@@ -130,13 +123,13 @@ n <- 2^10
 p <- 10
 
 # parameters
-beta <- rnorm(p + choose(p,2))
-beta_0 <- rnorm(1)
+alpha_delta <- rnorm(p + choose(p,2))
+alpha_0 <- rnorm(1)
 
 # data
 x <- matrix(rnorm(n * p), n, p)
 mm<- model.matrix(~ 0 + .*., data = data.frame(x))
-y <- c(mm %*% beta + beta_0 + rnorm(n))
+y <- c(mm %*% alpha_delta + alpha_0 + rnorm(n))
 
 code <- '
 data {
@@ -146,15 +139,15 @@ data {
   matrix[N,P] X;
 }
 parameters {
-  vector[P] beta;
+  vector[P] alpha;
   real<lower=0> sigma;
-  real beta_0;
+  real alpha_0;
 }
 model {
   vector[N] mu_raw = X * beta + beta_0;
   
-  beta_0 ~ normal(0,1);
-  beta ~ normal(0,1);
+  alpha0 ~ normal(0,1);
+  alpha ~ normal(0,1);
   sigma ~ normal(0,1);
   Y ~ normal(mu_raw, sigma);
 }
@@ -170,30 +163,18 @@ fit <- stan(model_code = code,
 
 ### Interpretable model
 
-We can estimate an interpretable model, which essentially ammounts to
-fitting regression to the samples. How we do this can vary for our
-methods. Since we *know* the true model, we may simply seek to turn the
-covariates on our off and get our set of interpretable coefficients.
-Alternatively, we may want to find an approximate model with new
-coefficients. We can do both in the framework briefly described above.
+We can estimate an interpretable model, which essentially ammounts to fitting regression to the samples. How we do this can vary for our methods. Since we *know* the true model, we may simply seek to turn the covariates on our off and get our set of interpretable coefficients. Alternatively, we may want to find an approximate model with new coefficients. We can do both in the framework briefly described above. The basic idea is to find coefficients such that $$\hat{\nu} = f_\beta(X)$$ is as close as possible to $$\hat{\mu}$$. However, it is important to consider *what* we want to interpret. 
 
-However, it is important to consider *what* we want to interpret. We
-could want to know how the model roughly functions globally, or which
-covariates could be the most important, but we may also want to know
-which covariates are driving the prediction for a single individual and
-consider the most important ones.
+We could want to know how the model roughly functions globally, or which covariates could be the most important, but we may also want to know which covariates are driving the prediction for a single individual and consider the most important ones.
 
-Let’s say we’re interested in the 5th individual in our data. We can pul
-their data
+Let's say we're interested in the 5th individual in our data. We can pul their data
 
 ``` r
 X_mm  <- cbind(1,mm)
 X_test <- X_mm[5,]
 ```
 
-And then we can run our interpretable models. We first run our set that
-can get interpretable models for a single data point–i.e., by simply
-turning coefficients on or off that best predict the data:
+And then we can run our interpretable models. We first run our set that can get interpretable models for a single data point--i.e., by simply turning coefficients on or off that best predict the data. The details are explained more fully in the paper, but basically for $$W_2$$ distances, we can represent the problem as a binary program:
 
 ``` r
 library(WpProj)
@@ -217,8 +198,7 @@ approx <- WpProj(X = X_test, eta = mu_test, theta = beta,
              options = list(display.progress = TRUE))
 ```
 
-We can also fit a model that adapts the coefficients. To do so, we need
-to create a pseudo neighborhood round our point of interest
+We can also fit a model that simply finds a lasso regression closest to $$\hat{\mu}$$. To do so, we need to create a pseudo neighborhood round our point of interest
 
 ``` r
 library(mvtnorm)
