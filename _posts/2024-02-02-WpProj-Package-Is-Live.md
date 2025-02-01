@@ -6,7 +6,7 @@ description: >
 sitemap: false
 ---
 
-**Edit (1/30/2025):** *This package was archived on CRAN in November 2024 due to a package it depended on being archived. Working on getting it back up ASAP *
+**Edit (1/30/2025):** _This package was archived on CRAN in November 2024 due to a package it depended on being archived. Working on getting it back up ASAP_
 
 ------------------------------------------------------------------------
 
@@ -93,7 +93,7 @@ network, etc.
 
 For exposition, we will generate our data from a hard to interpret, non-linear model and then fit a Bayesian Gaussian Process regression to estimate the response surface. The set-up will be somewhat complicated but it's basically to generate complicated data and fit a complicated model.
 
-First, let's assume our data is drawn from the following distributions. Let $$p = 10$$ and $$n = 1000$$. 
+First, let's assume our data is drawn from the following distributions. Let $$K = 10$$ and $$N = 1000$$. 
 Take
 
 $$ X_j \sim \mathcal{N} (0, \mathbb{I}_p)$$
@@ -102,11 +102,11 @@ and
 
 $$ Y_j = f(X_j) + \epsilon_j$$
 
-where $$\epsilon_{1:n} \sim \mathcal{N}(0,1)$$. The function $f$ is defined as
+where $$\epsilon_{1:N} \sim \mathcal{N}(0,1)$$. The function $f$ is defined as
 
 $$ f(X_j) = \alpha_0 + \sum_{k=1}^K \alpha_k X_{j,k} + \sum_{k=1, k' >k }^K \delta_{k,k'} X_{j,k} X_{j,k'}.$$
 
-We can generate the parameters of this generating function by taking $$\alpha_0, \alpha, \delta \sim \mathcal{N}(0,1)$$ and $$\epsilon_{1:n} \sim \mathcal{N}(0,1)$$
+We can generate the parameters of this generating function by taking $$\alpha_0, \alpha, \delta \sim \mathcal{N}(0,1)$$ and $$\epsilon_{1:N} \sim \mathcal{N}(0,1)$$
 
 Then, assume for some reason we know the true model (this is so we can run all of the methods for our package). And we will fit a Bayesian regression model directly on this model.
 
@@ -127,9 +127,9 @@ alpha_delta <- rnorm(K + choose(K,2))
 alpha_0 <- rnorm(1)
 
 # data
-x <- matrix(rnorm(n * K), n, K)
+x <- matrix(rnorm(N * K), N, K)
 mm<- model.matrix(~ 0 + .*., data = data.frame(x))
-y <- c(mm %*% alpha_delta + alpha_0 + rnorm(n))
+y <- c(mm %*% alpha_delta + alpha_0 + rnorm(N))
 
 code <- '
 data {
@@ -157,7 +157,7 @@ generated quantities {
 '
 
 fit <- stan(model_code = code, 
-            data = list(N = n, K = ncol(mm), Y = y, X = mm),
+            data = list(N = N, K = ncol(mm), Y = y, X = mm),
             iter = 500, chains = 4, cores = 4)
 ```
 
@@ -206,7 +206,7 @@ library(mvtnorm)
 pp <- ncol(mm) 
 
 # generate the neighborhood arround the point
-X_neigh <- mvtnorm::rmvnorm(100, mean = X_test[-1], sigma = cov(X_mm[,-1])/n)
+X_neigh <- mvtnorm::rmvnorm(100, mean = X_test[-1], sigma = cov(X_mm[,-1])/N)
 
 # get predictions for the neighborhood
 mu_neigh <- cbind(1,X_neigh) %*% t(beta)
