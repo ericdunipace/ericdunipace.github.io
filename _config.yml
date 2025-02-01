@@ -188,7 +188,6 @@ exclude:
   - package-lock.json
   - _pages/about_einstein.md
   - _posts/Rmd
-  - _posts/2024-02-02-WpProj-Package-Is-Live_files
   - purgecss.config.js
   - README.md
   - readme_preview/

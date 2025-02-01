@@ -16,7 +16,7 @@ knit: (function(input, ...) {
   })
 ---
 
-**Edit (1/30/2025):** *This package was archived on CRAN in November 2024 due to a package it depended on being archived. Working on getting it back up ASAP *
+**Edit (1/30/2025):** This package was archived on CRAN in November 2024 due to a package it depended on being archived. Working on getting it back up ASAP
 
 ---
 
