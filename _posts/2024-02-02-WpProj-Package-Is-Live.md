@@ -104,7 +104,7 @@ $$ Y_j = f(X_j) + \epsilon_j$$
 
 where $$\epsilon_{1:n} \sim \mathcal{N}(0,1)$$. The function $f$ is defined as
 
-$$ f(X_j) = \alpha_0 + \sum_{k=1}^p \alpha_k X_{j,k} + \sum_{k=1, k' >k }^p \delta_{k,k'} X_{j,k} X_{j,k'}.$$
+$$ f(X_j) = \alpha_0 + \sum_{k=1}^K \alpha_k X_{j,k} + \sum_{k=1, k' >k }^K \delta_{k,k'} X_{j,k} X_{j,k'}.$$
 
 We can generate the parameters of this generating function by taking $$\alpha_0, \alpha, \delta \sim \mathcal{N}(0,1)$$ and $$\epsilon_{1:n} \sim \mathcal{N}(0,1)$$
 
@@ -119,27 +119,27 @@ library(rstan)
 
 # Simulated Data
 set.seed(42)
-n <- 2^10
-p <- 10
+N <- 2^10
+K <- 10
 
 # parameters
-alpha_delta <- rnorm(p + choose(p,2))
+alpha_delta <- rnorm(K + choose(K,2))
 alpha_0 <- rnorm(1)
 
 # data
-x <- matrix(rnorm(n * p), n, p)
+x <- matrix(rnorm(n * K), n, K)
 mm<- model.matrix(~ 0 + .*., data = data.frame(x))
 y <- c(mm %*% alpha_delta + alpha_0 + rnorm(n))
 
 code <- '
 data {
   int N;
-  int P;
+  int K;
   vector[N] Y;
-  matrix[N,P] X;
+  matrix[N,K] X;
 }
 parameters {
-  vector[P] alpha;
+  vector[K] alpha;
   real<lower=0> sigma;
   real alpha_0;
 }
@@ -157,7 +157,7 @@ generated quantities {
 '
 
 fit <- stan(model_code = code, 
-            data = list(N = n, P = ncol(mm), Y = y, X = mm),
+            data = list(N = n, K = ncol(mm), Y = y, X = mm),
             iter = 500, chains = 4, cores = 4)
 ```
 
@@ -253,8 +253,11 @@ plot(wpr2)
 ![Full-width image](/_posts/2024-02-02-WpProj-Package-Is-Live_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 This last statistic functions kinda like $$R^2$$ values in regression
-except it is measuring how close one is between a null model and the
-original predictions.
+except it is measuring how close an interpretable model is to the full model as compared to a null model, such as one with just the intercept:
+
+$$ W_p R^2 = 1 - \frac{W_p(\hat{\mu}, \hat{\nu})}{W_p(\hat{\mu}, \hat{\nu}_\text{NULL})}. $$
+
+If the null model is appropriately chosen, this quantity $$W_p R^2$$ will be in $$[0,1]$$, but can be negative if not.
 
 ## Extensions
 
