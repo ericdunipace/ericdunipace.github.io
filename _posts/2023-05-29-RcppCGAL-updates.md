@@ -28,7 +28,74 @@ Really, this is a bare bones package simply meant to make the process of includi
 To see what kinds of things are possible with CGAL, I recommend checking out Stéphane Laurent's packages. He details some of them [here](https://laustep.github.io/stlahblog/posts/SurfaceReconstruction.html).
 
 From my own uses, I have the following example in the README file of the GitHub on how to do Hilbert sorting
-~~~c++// [[Rcpp::depends(RcppCGAL)]]// [[Rcpp::depends(BH)]]// [[Rcpp::depends(RcppEigen)]]// [[Rcpp::plugins(cpp14)]]  #include <RcppEigen.h>#include <CGAL/basic.h>#include <CGAL/Cartesian_d.h>#include <CGAL/spatial_sort.h>#include <CGAL/Spatial_sort_traits_adapter_d.h>#include <CGAL/boost/iterator/counting_iterator.hpp>#include <CGAL/hilbert_sort.h>#include <CGAL/Spatial_sort_traits_adapter_d.h>typedef CGAL::Cartesian_d<double>           Kernel;typedef Kernel::Point_d                     Point_d;typedef CGAL::Spatial_sort_traits_adapter_d<Kernel, Point_d*>   Search_traits_d;void hilbert_sort_cgal_fun(const double * A, int D, int N,  int * idx){    std::vector<Point_d> v;  double * temp = new double[D];    for (int n = 0; n < N; n++ ) {    for (int d = 0; d < D; d ++) {      temp[d] = A[D * n + d];    }    v.push_back(Point_d(D, temp, temp+D));  }    std::vector<std::ptrdiff_t> temp_index;  temp_index.reserve(v.size());    std::copy(    boost::counting_iterator<std::ptrdiff_t>(0),    boost::counting_iterator<std::ptrdiff_t>(v.size()),    std::back_inserter(temp_index) );    CGAL::hilbert_sort (temp_index.begin(), temp_index.end(), Search_traits_d( &(v[0]) ) ) ;    for (int n = 0; n < N; n++) {    idx[n] = temp_index[n];  }    delete [] temp;  temp=NULL;}// [[Rcpp::export]]Rcpp::IntegerVector hilbertSort(const Eigen::MatrixXd & A){  int K = A.rows();  int N = A.cols();  std::vector<int> idx(N);    hilbert_sort_cgal_fun(A.data(), K, N, &idx[0] );  return(Rcpp::wrap(idx));}~~~Saving this code as `hilbertSort.cpp` and sourcing with Rcpp `Rcpp::sourceCpp("hilbertSort.cpp")`makes the function `hilbertSort()`. Be aware that this example function example assumes that the observations are stored bycolumn rather than by row, that is as the transpose of the usual `R` `matrix` or `data.frame`.
+```c++
+// [[Rcpp::depends(RcppCGAL)]]
+// [[Rcpp::depends(BH)]]
+// [[Rcpp::depends(RcppEigen)]]
+// [[Rcpp::plugins(cpp14)]]  
+
+#include <RcppEigen.h>
+#include <CGAL/basic.h>
+#include <CGAL/Cartesian_d.h>
+#include <CGAL/spatial_sort.h>
+#include <CGAL/Spatial_sort_traits_adapter_d.h>
+#include <CGAL/boost/iterator/counting_iterator.hpp>
+#include <CGAL/hilbert_sort.h>
+#include <CGAL/Spatial_sort_traits_adapter_d.h>
+
+typedef CGAL::Cartesian_d<double>           Kernel;
+typedef Kernel::Point_d                     Point_d;
+
+typedef CGAL::Spatial_sort_traits_adapter_d<Kernel, Point_d*>   Search_traits_d;
+
+void hilbert_sort_cgal_fun(const double * A, int D, int N,  int * idx)
+{
+  
+  std::vector<Point_d> v;
+  double * temp = new double[D];
+  
+  for (int n = 0; n < N; n++ ) {
+    for (int d = 0; d < D; d ++) {
+      temp[d] = A[D * n + d];
+    }
+    v.push_back(Point_d(D, temp, temp+D));
+  }
+  
+  std::vector<std::ptrdiff_t> temp_index;
+  temp_index.reserve(v.size());
+  
+  std::copy(
+    boost::counting_iterator<std::ptrdiff_t>(0),
+    boost::counting_iterator<std::ptrdiff_t>(v.size()),
+    std::back_inserter(temp_index) );
+  
+  CGAL::hilbert_sort (temp_index.begin(), temp_index.end(), Search_traits_d( &(v[0]) ) ) ;
+  
+  for (int n = 0; n < N; n++) {
+    idx[n] = temp_index[n];
+  }
+  
+  delete [] temp;
+  temp=NULL;
+}
+
+// [[Rcpp::export]]
+Rcpp::IntegerVector hilbertSort(const Eigen::MatrixXd & A)
+{
+  int K = A.rows();
+  int N = A.cols();
+  std::vector<int> idx(N);
+  
+  hilbert_sort_cgal_fun(A.data(), K, N, &idx[0] );
+  return(Rcpp::wrap(idx));
+}
+```
+
+Saving this code as `hilbertSort.cpp` and sourcing with Rcpp `Rcpp::sourceCpp("hilbertSort.cpp")`
+makes the function `hilbertSort()`. Be aware that this example 
+function example assumes that the observations are stored by
+column rather than by row, that is as the transpose of the 
+usual `R` `matrix` or `data.frame`.
 
 ## What next?
 Hopefully, there won't be too much more to this package now that it should autoupdate to the latest version of CGAL.
