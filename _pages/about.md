@@ -6,7 +6,7 @@ subtitle:
 
 profile:
   align: right
-  image: eric_large.jpg
+  image: eric_bw.jpg
   image_circular: false # crops the image to make it circular
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
@@ -23,10 +23,11 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+I am a psychiatry resident at Stanford University with a background in biostatistics and global health. 
 
-I received my PhD in biostatistics and am currently a resident physician in psychiatry at Stanford University. 
+My research focuses on statistical methods for causal inference, with an emphasis on optimal transport and graph-based testing. Before medicine, I completed a PhD in Biostatistics at Harvard, where I developed novel tools for analyzing multivariate data. I also hold an MD from UCLA, as well as a Master of Science in Global Health and Population from Harvard. My work has been published in leading journals across medicine and statistics and I have developed several statistical packages for data analysis. For more info, see the pages linked in the tabs above. 
 
-My research explores the ways Optimal Transport methodology can be applied to different statistical inference problems in fields like causal inference and model interpretation. I am also interested in using tools from Bayesian Inference to perform model selection with some of the newly developed models in causal inference.
+Currently, I am a reviewer for the journal "Trials" and have served as a reviewer for the "Harvard Public Health Review."
 
-I also co-founded an emergency response social enterprise in Bangladesh called TraumaLink. To learn more, you can read the [case study](https://caseresources.hsph.harvard.edu/publications/traumalink-providing-trauma-first-aid-services-bangladesh-using).
+Beyond research, I co-founded [TraumaLink](https://www.traumalink.net/), an emergency response system in Bangladesh, for which I helped secure a USAID grant of over $150,000, and have been involved in projects spanning global health, data science, and policy. I also enjoy teaching and have mentored several students in biostatistics and data science.
      
