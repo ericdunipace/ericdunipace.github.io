@@ -6,10 +6,6 @@ description: >
 sitemap: false
 ---
 
-**Edit (1/30/2025):** _This package was archived on CRAN in November 2024 due to a package it depended on being archived. Working on getting it back up ASAP_
-
-------------------------------------------------------------------------
-
 This package was quite a mess. It was the first one I’d ever decided to
 do and filled with na"ivet'e and hubris, I thought it would be a good
 idea to make a package to load all my functions. It definitely took a
@@ -271,3 +267,8 @@ $$\inf_\beta \sum_i \| \hat{y}_i - h(x \beta_i)\|_p^p + ... $$
 
 This may also allow the models to have uses in other applications, which
 hopefully I will be working on soon!
+
+## Where can I find the latest version of the package?
+
+As always, on my [Github](https://github.com/ericdunipace/WpProj). For more links, check out the repositories page on this site.
+
