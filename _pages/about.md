@@ -23,7 +23,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a psychiatry resident at Stanford University with a background in biostatistics and global health. 
+I am a third-year psychiatry resident at UCLA with a background in biostatistics and global health. I completed the first two years of my psychiatry residency at Stanford University.
 
 My research focuses on statistical methods for causal inference, with an emphasis on optimal transport and graph-based testing. Before medicine, I completed a PhD in Biostatistics at Harvard, where I developed novel tools for analyzing multivariate data. I also hold an MD from UCLA, as well as a Master of Science in Global Health and Population from Harvard. My work has been published in leading journals across medicine and statistics and I have developed several statistical packages for data analysis. For more info, see the pages linked in the tabs above. 
 
