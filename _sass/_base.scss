@@ -3,6 +3,234 @@
  ******************************************************************************/
 
 // Typography
+// Site-wide body typography
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 380;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Light-on-dark text reads heavier, so thin it slightly
+html[data-theme="dark"] body {
+  font-weight: 340;
+}
+
+// Serif for major headings, lighter sans for minor ones
+h1,
+h2 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 500;
+}
+
+// Homepage name and page titles
+.post-title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+
+  // Keep the CV's PDF icon from scaling up with the title
+  .fa-file-pdf {
+    font-size: 2rem;
+  }
+}
+
+.post-description {
+  color: color-mix(in srgb, var(--global-text-color) 70%, transparent);
+}
+
+// CV section headings match the homepage section titles
+.cv-section-title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+// Keep homepage copy at a comfortable editorial reading width.
+// flow-root keeps the column beside the profile photo instead of widening below it.
+.about-content {
+  max-width: 65ch;
+  display: flow-root;
+}
+
+// Selected work: mono label column aligned with the news dates
+.selected-work {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 0.25rem 0;
+    padding: 0.75rem 0;
+  }
+
+  p {
+    margin: 0.125rem 0 0;
+    max-width: 65ch;
+  }
+}
+
+.selected-work-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--global-text-color) 70%, transparent);
+  padding-top: 0.125rem;
+}
+
+.selected-work-title {
+  font-weight: 500;
+  color: var(--global-text-color);
+
+  &:hover {
+    color: var(--global-hover-color);
+  }
+}
+
+.selected-work-venue {
+  font-style: italic;
+  color: color-mix(in srgb, var(--global-text-color) 70%, transparent);
+  margin-left: 0.375rem;
+}
+
+@media (max-width: 575.98px) {
+  .selected-work li {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Repository cards, built locally in the site's own type and colors
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 6px;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
+
+.repo-card-name {
+  font-weight: 500;
+  font-size: 1.0625rem;
+}
+
+.repo-card-description {
+  flex-grow: 1;
+}
+
+.repo-card-meta {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8125rem;
+  color: color-mix(in srgb, var(--global-text-color) 70%, transparent);
+}
+
+.repo-more {
+  margin-top: 1.5rem;
+}
+
+// Smaller homepage portrait so the name stays the focal point
+@media (min-width: 576px) {
+  .profile.home-profile {
+    width: 24%;
+  }
+}
+
+// News dates as quiet metadata; date column shrinks to fit its content
+.news table th {
+  width: 9rem;
+  white-space: nowrap;
+  padding-left: 0;
+  padding-right: 1.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--global-text-color) 70%, transparent);
+  vertical-align: baseline;
+}
+
+.news table td {
+  vertical-align: baseline;
+  color: var(--global-text-color);
+}
+
+// Homepage name as the centerpiece, with a quiet subtitle line
+.home-name {
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.home-subtitle {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--global-text-color) 70%, transparent);
+  margin-bottom: 2.5rem;
+}
+
+// Magazine-style section breaks: hairline rule, generous space above
+.home-section-title {
+  clear: both;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  border-top: 1px solid var(--global-divider-color);
+  padding-top: 1.25rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+// Navigation
+.navbar,
+.navbar-nav .nav-link,
+.dropdown-item {
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+// Name in the navbar matches the homepage name
+.navbar-brand.title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+// Small technical details
+.post-meta,
+.post-tags,
+.profile .more-info {
+  font-family: "IBM Plex Mono", monospace;
+}
 
 p,
 h1,

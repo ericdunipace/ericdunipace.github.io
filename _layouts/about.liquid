@@ -3,30 +3,32 @@ layout: default
 ---
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">
+    <h1 class="post-title home-name">
       {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+        <span>{{ site.first_name }}</span> {{ site.middle_name }}
         {{ site.last_name }}
       {% else %}
         {{ site.title }}
       {% endif %}
     </h1>
-    <p class="desc">{{ page.subtitle }}</p>
+    {% if page.subtitle %}
+      <p class="desc home-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
   </header>
 
   <article>
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+      <div class="profile home-profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% assign profile_image_class = 'img-fluid rounded-circle' %}
           {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
+            {% assign profile_image_class = 'img-fluid
       rounded' %}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.24}}px, (min-width: 576px)
+      24vw, 95vw"{% endcapture %}
           {%
             include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
             cache_bust=true
@@ -38,11 +40,30 @@ layout: default
       </div>
     {% endif %}
 
-    <div class="clearfix">{{ content }}</div>
+    <div class="clearfix about-content">{{ content }}</div>
+
+    <!-- Selected work -->
+    {% if page.selected_work %}
+      <h2 class="home-section-title">selected work</h2>
+      <ul class="selected-work">
+        {% for item in page.selected_work %}
+          <li>
+            <div class="selected-work-label">{{ item.label }}</div>
+            <div>
+              <a class="selected-work-title" href="{{ item.url }}">{{ item.title }}</a>
+              {% if item.venue %}
+                <span class="selected-work-venue">{{ item.venue }}</span>
+              {% endif %}
+              <p>{{ item.description }}</p>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
+      <h2 class="home-section-title">
         <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
       </h2>
       {% include news.liquid limit=true %}
@@ -50,7 +71,7 @@ layout: default
 
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
+      <h2 class="home-section-title">
         <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
       </h2>
       {% include latest_posts.liquid %}
@@ -58,7 +79,7 @@ layout: default
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
+      <h2 class="home-section-title">
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
       </h2>
       {% include selected_papers.liquid %}

@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle:  
+subtitle: Psychiatry · Biostatistics · Causal inference · Optimal transport
 
 profile:
   align: right
@@ -12,22 +12,37 @@ profile:
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
+# Shown on the homepage above news. venue is optional.
+selected_work:
+  - label: Paper · 2025
+    title: Interpretable model summaries using the Wasserstein distance
+    venue: The American Statistician
+    url: https://doi.org/10.1080/00031305.2025.2551223
+    description: Summarizes large models with a chosen budget of parameters while staying close, in Wasserstein distance, to the full model.
+  - label: Preprint
+    title: Optimal transport weights for causal inference
+    venue: arXiv:2109.01991
+    url: https://arxiv.org/abs/2109.01991
+    description: Causal weighting that targets distributional balance by minimizing optimal transport distances between treatment and control groups.
+  - label: R package
+    title: WpProj
+    url: https://github.com/ericdunipace/WpProj
+    description: Wasserstein projections for interpretable model summaries, available on CRAN.
+  - label: R package
+    title: RcppCGAL
+    url: https://github.com/ericdunipace/RcppCGAL
+    description: Brings the CGAL computational geometry library's C++ headers to R through Rcpp.
+
 announcements:
   enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a third-year psychiatry resident at UCLA with a background in biostatistics and global health. I completed the first two years of my psychiatry residency at Stanford University.
+I’m a fourth-year psychiatry resident at UCLA, with a PhD in biostatistics from Harvard. My research focuses on developing statistical methods for causal inference, particularly optimal transport, and building statistical software. Outside of research, I co-founded  [TraumaLink](https://www.traumalink.net/), an emergency response system in Bangladesh, and helped secure a $150,000 USAID grant for it. I also enjoy teaching and have mentored students in biostatistics and data science. More details are in the tabs above.
 
-My research focuses on statistical methods for causal inference, with an emphasis on optimal transport and graph-based testing. Before medicine, I completed a PhD in Biostatistics at Harvard, where I developed novel tools for analyzing multivariate data. I also hold an MD from UCLA, as well as a Master of Science in Global Health and Population from Harvard. My work has been published in leading journals across medicine and statistics and I have developed several statistical packages for data analysis. For more info, see the pages linked in the tabs above. 
-
-Currently, I am a reviewer for the journal "Trials" and have served as a reviewer for the "Harvard Public Health Review."
-
-Beyond research, I co-founded [TraumaLink](https://www.traumalink.net/), an emergency response system in Bangladesh, for which I helped secure a USAID grant of over $150,000, and have been involved in projects spanning global health, data science, and policy. I also enjoy teaching and have mentored several students in biostatistics and data science.
-     

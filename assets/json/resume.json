@@ -2,7 +2,7 @@
   "basics": {
     "name": "Eric A. Dunipace",
     "image": "",
-    "email": "edunipace[at]mail.harvard.edu",
+    "email": "edunipace[at]post[dot]harvard[dot]edu",
     "url": "https://ericdunipace.github.io/",
     "summary": "Psychiatrist and Biostatistician",
     "profiles": [
@@ -22,14 +22,18 @@
     ]
   },
   "work": [
+     {
+      "name": "Department of Psychiatry and Biobehavioral Sciences, UCLA",
+      "position": "Psychiatry Resident",
+      "url": "https://www.semel.ucla.edu/psychiatry",
+      "startDate": "2025-07",
+      "endDate": "Present"    },
     {
       "name": "Department of Psychiatry and Behavioral Sciences, Stanford University",
       "position": "Psychiatry Resident",
       "url": "https://med.stanford.edu/psychiatry.html",
       "startDate": "2023-06",
-      "endDate": "Present",
-      "summary": "Currently a resident in psychiatry focusing on acute mental health treatments."
-    }
+      "endDate": "2025-06"    }
   ],
   "education": [
     {

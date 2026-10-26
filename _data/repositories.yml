@@ -1,10 +1,21 @@
 github_users:
   - ericdunipace
 
-repo_description_lines_max: 2
-
+# Shown as cards on the repositories page. Edit descriptions freely.
 github_repos:
-  - ericdunipace/RcppCGAL
-  - ericdunipace/causalOT
-  - ericdunipace/approxOT
-  - ericdunipace/WpProj
+  - name: RcppCGAL
+    url: https://github.com/ericdunipace/RcppCGAL
+    language: R
+    description: Links R packages to the header files of CGAL, the Computational Geometry Algorithms Library.
+  - name: causalOT
+    url: https://github.com/ericdunipace/causalOT
+    language: R
+    description: Weighting methods for causal estimands using optimal transport.
+  - name: approxOT
+    url: https://github.com/ericdunipace/approxOT
+    language: C++ · R
+    description: Fast exact and approximate optimal transport distances for R.
+  - name: WpProj
+    url: https://github.com/ericdunipace/WpProj
+    language: R
+    description: p-Wasserstein linear projections for interpretable model summaries.

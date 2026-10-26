@@ -7,7 +7,7 @@ first_name: Eric
 middle_name: A.
 last_name: Dunipace
 contact_note: >
-  The best way to contact me is via email at <span class="blockspam" aria-hidden="true">PLEASE GO AWAY!</span> edunipace<span class="blockspam" aria-hidden="true">Seriously!</span>[at]<!-- sdfjsdhfkjypcs -->mail<span class="blockspam" aria-hidden="true">COME ON COME ON!</span>.<!-- osakdjf;laskjf -->harvard<span class="blockspam" aria-hidden="true">PLEASE PLEASE!</span>.<!-- asdlfkjasdl;jf;laskjf -->edu.
+  The best way to contact me is via email at <span class="blockspam" aria-hidden="true">PLEASE GO AWAY!</span> edunipace<span class="blockspam" aria-hidden="true">Seriously!</span>[at]<!-- sdfjsdhfkjypcs -->post<span class="blockspam" aria-hidden="true">COME ON COME ON!</span>.<!-- osakdjf;laskjf -->harvard<span class="blockspam" aria-hidden="true">PLEASE PLEASE!</span>.<!-- asdlfkjasdl;jf;laskjf -->edu.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Personal website of Eric A. Dunipace — MD/PhD
 footer_text: >
@@ -31,7 +31,7 @@ back_to_top: true # set to false to disable the back to top button
 repo_theme_light: default # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 repo_theme_dark: dark # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 repo_trophies:
-  enabled: true
+  enabled: false
   theme_light: flat # https://github.com/ryo-ma/github-profile-trophy
   theme_dark: gitdimmed # https://github.com/ryo-ma/github-profile-trophy
 
@@ -222,6 +222,13 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  # News items are one-liners by default; set inline: false and a title for a full page
+  - scope:
+      path: ""
+      type: news
+    values:
+      inline: true
+      related_posts: false
 
 sass:
   style: compressed
@@ -442,7 +449,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Material+Icons&display=swap"
   highlightjs:
     integrity:
       css:
