@@ -168,10 +168,26 @@ h6 {
   margin-top: 1.5rem;
 }
 
-// Smaller homepage portrait so the name stays the focal point
+// Smaller homepage portrait so the name stays the focal point.
+// Floats beside the text from 576px up; on phones it stacks above the text.
+.profile.home-profile {
+  max-width: 16rem;
+  margin: 0 0 1.5rem;
+}
+
 @media (min-width: 576px) {
   .profile.home-profile {
     width: 24%;
+    max-width: none;
+    margin-bottom: 1rem;
+
+    &.float-sm-right {
+      margin-left: 1.5rem;
+    }
+
+    &.float-sm-left {
+      margin-right: 1.5rem;
+    }
   }
 }
 
